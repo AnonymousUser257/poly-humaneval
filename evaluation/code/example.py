@@ -25,7 +25,7 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 """
 
 problems = parse(description)
-template_path = "./project-templates/single-file/python"
+template_path = "./project-templates/default/python"
 single_file_template = ProjectTemplate(template_path)
 codes = gen_codes_for_single_file(lang="python", problem=problems["HumanEval/4"], target_code=solution)
 single_file_proj = create_project(template=single_file_template, name="example", codes=codes, root=".polyeval/", overwrite=True)
