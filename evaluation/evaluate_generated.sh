@@ -1,0 +1,1 @@
+python code/check_generated_parallel.py --input data/RQ1-2_CodeLlama-13B.json --output result.json
