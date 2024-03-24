@@ -63,6 +63,6 @@ All the LLM-generated results in our experiments are placed in [`llm_generated_t
 
 The artifacts for Self-Training are placed in [`self_training_data`](self_training_data). 
 - [`self_training_data/generated_py_codes.json`](self_training_data/generated_py_codes.json) is the generated Python code with CodeLlama-13B.
-- [`self_training_data/generated.testdsl`](self_training_data/generated_py_codes.json) is the generated Python testcases converted to `TestDSL` format.
-- [`self_training_data/fine-tune-prompts`](self_training_data/generated_py_codes.json) is the Python-Go parallel data for fine-tuning CodeLlama-13B.
-- [`self_training_data/fine-tune-lora-checkpoints`](self_training_data/generated_py_codes.json) is the LoRA adapter model checkpoints after self-training.
+- [`self_training_data/generated.testdsl`](self_training_data/generated.testdsl) is the generated Python testcases converted to `TestDSL` format.
+- [`self_training_data/fine-tune-prompts`](self_training_data/fine-tune-prompts) is the Python-Go parallel data for fine-tuning CodeLlama-13B.
+- [`self_training_data/fine-tune-lora-checkpoints`](self_training_data/fine-tune-lora-checkpoints) is the LoRA adapter model checkpoints after self-training.
