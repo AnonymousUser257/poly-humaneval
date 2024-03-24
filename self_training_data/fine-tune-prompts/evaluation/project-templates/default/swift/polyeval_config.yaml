@@ -1,6 +1,0 @@
-sources:
-  main: src/main.swift
-
-commands:
-  build: swiftc src/main.swift
-  run: ./main

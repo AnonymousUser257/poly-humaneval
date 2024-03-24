@@ -1,6 +1,0 @@
-sources:
-  main: src/Main.scala
-
-commands:
-  build: scalac src/Main.scala
-  run: scala src.main

@@ -1,9 +1,0 @@
-sources:
-  main: src/main.ts
-
-commands:
-  install: pnpm install
-  build: tsc
-  run: node dist/main.js
-
-
