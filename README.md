@@ -3,7 +3,7 @@ Artifact for ICSE 2025 Submission: "Unraveling the Potential of Large Language M
 
 ## Benchmark
 
-We conduct the **PolyHumanEval** benchmark, a variant of [OpenAI HumanEval](https://github.com/openai/human-eval) that support 14 programming languages: C++, C# , Dart, Go, Java, JavaScript, Kotlin, PHP, Python, Ruby, Rust, Scala, Swift and TypeScript. 
+We conduct the **PolyHumanEval** benchmark, a variant of [`OpenAI HumanEval`](https://github.com/openai/human-eval) that support 14 programming languages: C++, C# , Dart, Go, Java, JavaScript, Kotlin, PHP, Python, Ruby, Rust, Scala, Swift and TypeScript. 
 
 ## TestDSL 
 The **PolyHumanEval** benchmark is described in `TestDSL` format, which 
@@ -17,18 +17,26 @@ assert candidate([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05) == False
 ```
 is describe by this `TestDSL` code:
 ```testdsl
-func has_close_elements(numbers: list<double>, threshold: double) -> bool
-    ([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.3) -> true
-    ([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05) -> false
+code {
+    func has_close_elements(numbers: list<double>, threshold: double) -> bool
+}
+tests {
+    template nse {
+        ([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.3) -> true
+        ([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05) -> false
     …   
+    }
+}
 ```
-The whole benchmark data is shown in [benchmark/poly_humaneval.testdsl](benchmark/poly_humaneval.testdsl), which describes function signature and testcases for all 164 questions in HumanEval. Our handcraft solutions (also used for source code of translation) are shown in [benchmark/poly_humaneval_sol.json](benchmark/poly_humaneval_sol.json).
+The whole benchmark data is shown in [`benchmark/poly_humaneval.testdsl`](benchmark/poly_humaneval.testdsl), which describes function signature and testcases for all 164 questions in HumanEval. Our handcraft solutions (also used for source code of translation) are shown in [`benchmark/poly_humaneval_sol.json`](benchmark/poly_humaneval_sol.json).
 
 ## Test Generation Tool & Evaluation
 
-We then develop a tool for parsing the `TestDSL` data and generate test programs in all 14 programming languages, and execute the test programs to get the results. They are placed in the [evaluation](evaluation) folder. An example of usage is shown in [evaluation/code/example.py](evaluation/code/example.py).
+We then develop a tool for parsing the `TestDSL` data, generating test programs in all 14 programming languages, and executing the test programs to get the results. They are placed in the [`evaluation`](evaluation) folder. An example of usage is shown in [`evaluation/code/example.py`](evaluation/code/example.py).
 
-For easier reproduction, we use [`Nix`](https://github.com/NixOS/nix) to manage the dependencies. If you have `Nix` installed in your computer, it will be extremely simple. Following these steps to reproducible the runtime environment:
+For easier reproduction, we use [`Nix`](https://github.com/NixOS/nix) to manage the dependencies in [`evaluation/shell.nix`](evaluation/shell.nix).
+
+Following these steps to reproducible the runtime environment:
 ```bash
 > git clone https://github.com/AnonymousUser257/poly-humaneval
 > cd evaluation
@@ -56,4 +64,4 @@ The artifacts for Self-Training are placed in [self_tranining_data](self_tranini
 - [self_tranining_data/generated_py_codes.json](self_tranining_data/generated_py_codes.json) is the generated Python code with CodeLlama-13B.
 - [self_tranining_data/generated.testdsl](self_tranining_data/generated_py_codes.json) is the generated Python testcases converted to `TestDSL` format.
 - [self_tranining_data/fine-tune-prompts](self_tranining_data/generated_py_codes.json) is the Python-Go parallel data for fine-tuning CodeLlama-13B.
-- [self_tranining_data/fine-tune-lora-checkpoints](self_tranining_data/generated_py_codes.json) is the LoRA adapter checkpoints after self-training.
+- [self_tranining_data/fine-tune-lora-checkpoints](self_tranining_data/generated_py_codes.json) is the LoRA adapter model checkpoints after self-training.
