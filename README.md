@@ -30,7 +30,7 @@ tests {
 ```
 The whole benchmark data is shown in [`benchmark/poly_humaneval.testdsl`](benchmark/poly_humaneval.testdsl), which describes function signature and testcases for all 164 questions in HumanEval. Our handcraft solutions (also used for source code of translation) are shown in [`benchmark/poly_humaneval_sol.json`](benchmark/poly_humaneval_sol.json).
 
-## Test Generation Tool & Evaluation
+## Test Generation & Evaluation Tool
 
 We then develop a tool for parsing the `TestDSL` data, generating test programs in all 14 programming languages, and executing the test programs to get the results. They are placed in the [`evaluation`](evaluation) folder. An example of usage is shown in [`evaluation/code/example.py`](evaluation/code/example.py).
 
