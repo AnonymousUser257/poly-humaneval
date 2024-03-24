@@ -4,7 +4,6 @@ javascript/pnpm-lock.yaml
 php/composer.lock
 ruby/Gemfile.lock
 rust/Cargo.lock
-rust/target/*
 swift/Package.resolved
 typescript/pnpm-lock.yaml
 cpp/build/*
@@ -15,6 +14,7 @@ java/.gradle/*
 javascript/node_modules/*
 kotlin/.gradle/*
 php/vendor/*
+rust/target/*
 scala/.gradle/*
 swift/.build/*
 typescript/node_modules/*

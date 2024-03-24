@@ -1,6 +1,8 @@
 let
   nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
   pkgs = import nixpkgs { config = {}; overlays = []; };
+  nixpkgs_old = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.05";
+  pkgs_old = import nixpkgs_old { config = {}; overlays = []; };
 in
 pkgs.mkShell.override { stdenv = pkgs.libcxxStdenv; } {
   buildInputs = [
@@ -54,10 +56,10 @@ pkgs.mkShell.override { stdenv = pkgs.libcxxStdenv; } {
     # Scala
     pkgs.scala_3
 
-    # Swift: broken in nixos-23.11; You need to install it manually, for example, with Homebrew
-    # pkgs.swiftPackages.swift
-    # pkgs.swiftPackages.swiftpm
-    # pkgs.swiftPackages.Foundation
+    # Swift
+    pkgs_old.swift
+    pkgs_old.swiftPackages.swiftpm
+    pkgs_old.swiftPackages.Foundation
 
     # TypeScript
     pkgs.typescript
