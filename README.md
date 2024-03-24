@@ -11,9 +11,10 @@ The **PolyHumanEval** benchmark is described in `TestDSL` format, which
 For example, the `has_close_element` in HumanEval:
 ```python
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    …
+    ...
 assert candidate([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.3) == True
 assert candidate([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05) == False
+...
 ```
 is describe by this `TestDSL` code:
 ```testdsl
@@ -24,7 +25,7 @@ tests {
     template nse {
         ([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.3) -> true
         ([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05) -> false
-    …   
+        ...
     }
 }
 ```
