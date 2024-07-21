@@ -1,5 +1,5 @@
 # Poly-HumanEval
-Artifacts for APSEC 2025 Submission: "Unraveling the Potential of Large Language Models in Code Translation: How Far Are We?"
+Artifacts for APSEC 2024 Submission: "Unraveling the Potential of Large Language Models in Code Translation: How Far Are We?"
 
 ## Benchmark
 
